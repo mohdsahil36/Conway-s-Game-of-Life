@@ -75,6 +75,9 @@ const GameOfLife = () => {
     runSimulation();
   }, [running, runSimulation]);
 
+  // Dynamically generate grid template columns
+  const gridTemplateColumns = `repeat(${numCols}, 20px)`;
+
   return (
     <div>
       <div className='input-div'>
@@ -101,13 +104,13 @@ const GameOfLife = () => {
         <button onClick={handleRunClick} className='start-button'>{running ? 'Stop' : 'Start'}</button>
         <button onClick={handleClearClick} className='reset-button'>Clear</button>
       </div>
-      <div className='grid-container'> {/* Use grid-container class */}
+      <div className='grid-container' style={{ gridTemplateColumns: gridTemplateColumns }}>
         {grid.map((row, i) =>
           row.map((col, j) => (
             <div
               key={`${i}-${j}`}
               onClick={() => toggleCell(i, j)}
-              className={col === 1 ? 'cell alive' : 'cell dead'} // Use cell class with alive/dead modifiers
+              className={col === 1 ? 'cell alive' : 'cell dead'}
             ></div>
           ))
         )}

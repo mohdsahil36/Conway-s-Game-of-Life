@@ -1,34 +1,25 @@
-.input-div {
-    margin-bottom: 10px;
-  }
-  
-  .rows-div, .columns-div {
-    margin-right: 10px;
-  }
-  
-  .buttons-div {
-    margin-bottom: 10px;
-  }
-  
-  .start-button, .reset-button {
-    margin-right: 10px;
-  }
-  
-  .grid-container {
-    display: grid;
-  }
-  
-  .cell {
-    width: 30px;
-    height: 20px;
-    border: solid 1px gray;
-  }
-  
-  .cell.alive {
-    background-color: black;
-  }
-  
-  .cell.dead {
-    background-color: white;
-  }
-  
+.input-div,.buttons-div {
+    margin-bottom: 1rem;
+}
+
+.rows-div, .columns-div,.start-button, .reset-button {
+margin-right: 1rem;
+}
+
+.grid-container {
+display: grid;
+}
+
+.cell {
+width: 30px;
+height: 20px;
+border: solid 2px gray;
+}
+
+.cell.alive {
+background-color: black;
+}
+
+.cell.dead {
+background-color: white;
+}
