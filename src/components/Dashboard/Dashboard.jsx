@@ -3,8 +3,8 @@ import { generateEmptyGrid } from '../../utils/utils';
 import './Dashboard.css';
 
 const GameOfLife = () => {
-  const [numRows, setNumRows] = useState(50);
-  const [numCols, setNumCols] = useState(50);
+  const [numRows, setNumRows] = useState(20);
+  const [numCols, setNumCols] = useState(20);
   const [grid, setGrid] = useState(() => generateEmptyGrid(numRows, numCols));
   const [running, setRunning] = useState(false);
 
@@ -14,12 +14,12 @@ const GameOfLife = () => {
 
   const handleNumRowsChange = (event) => {
     const value = parseInt(event.target.value);
-    setNumRows(value > 0 ? value : 0);
+    setNumRows(value > 0 ? value : 1);
   };
 
   const handleNumColsChange = (event) => {
     const value = parseInt(event.target.value);
-    setNumCols(value > 0 ? value : 0);
+    setNumCols(value > 0 ? value : 1);
   };
 
   const toggleCell = (i, j) => {
@@ -67,15 +67,15 @@ const GameOfLife = () => {
         })
       );
     });
-
-    setTimeout(runSimulation, 200);
   }, [running]);
 
   useEffect(() => {
-    runSimulation();
+    if (running) {
+      const intervalId = setInterval(runSimulation, 200);
+      return () => clearInterval(intervalId);
+    }
   }, [running, runSimulation]);
 
-  // Dynamically generate grid template columns
   const gridTemplateColumns = `repeat(${numCols}, 20px)`;
 
   return (
