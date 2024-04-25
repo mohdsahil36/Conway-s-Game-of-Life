@@ -3,6 +3,8 @@
 
 Simple task for implementing Conway's Game of Life
 
+Live:https://game-of-life-alpha-ten.vercel.app/
+
 ## Rules
 
 - Any live cell with fewer than two live neighbors dies, as if by underpopulation.
