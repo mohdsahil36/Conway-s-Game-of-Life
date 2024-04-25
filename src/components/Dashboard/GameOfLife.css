@@ -38,6 +38,9 @@ background-color: #14A44D;
     height: 1.75rem;
     font-size: 1.25rem;
 }
+.grid-name{
+    margin-top: 1rem;
+}
 .grid-name-input{
     display: flex;
     align-items: center;
@@ -48,7 +51,7 @@ background-color: #14A44D;
     font-size: 1.125rem;
 }
 .start-button{
-    padding: 1rem 2rem;
+    padding: 0.5rem 1.5rem;
     color: white;
     font-weight: 500;
     border: none;
@@ -58,7 +61,7 @@ background-color: #14A44D;
     cursor: pointer;
 }
 .reset-button{
-    padding: 1rem 2rem;
+    padding: 0.5rem 1.5rem;
     color: white;
     font-weight: 500;
     border: none;
@@ -75,7 +78,7 @@ background-color: #14A44D;
     text-align: center;
 }
 .edit-button{
-    padding: 1rem 2rem;
+    padding: 0.5rem 1.5rem;
     color: white;
     font-weight: 500;
     border: none;
@@ -85,12 +88,23 @@ background-color: #14A44D;
     cursor: pointer;
 }
 .addGrid-button{
-    padding: 1rem 2rem;
+    padding: 0.5rem 1.5rem;
     color: white;
     font-weight: 500;
     border: none;
     border-radius: 10px;
     background-color:#E4A11B;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-left: 1rem;
+}
+.submit-button{
+    padding: 0.5rem 1.5rem;
+    color: white;
+    font-weight: 500;
+    border: none;
+    border-radius: 10px;
+    background-color:rgb(123, 176, 247);
     text-transform: uppercase;
     cursor: pointer;
     margin-left: 1rem;

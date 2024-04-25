@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { generateEmptyGrid } from '../../utils/utils';
 
-const Grid = ({ numRows, numCols }) => {
+const Grid = ({ numRows, numCols, index, editedGridName, setEditedGridName, handleEditGridName }) => {
   const [grid, setGrid] = useState(() => generateEmptyGrid(numRows, numCols));
   const [running, setRunning] = useState(false);
 
