@@ -1,28 +1,13 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { generateEmptyGrid } from '../../utils/utils';
-import './Dashboard.css';
 
-const GameOfLife = () => {
-  const [numRows, setNumRows] = useState(20);
-  const [numCols, setNumCols] = useState(20);
+const Grid = ({ numRows, numCols }) => {
   const [grid, setGrid] = useState(() => generateEmptyGrid(numRows, numCols));
   const [running, setRunning] = useState(false);
-  const [gridName, setGridName] = useState('');
-  const [submittedName, setSubmittedName] = useState('');
 
   useEffect(() => {
     setGrid(generateEmptyGrid(numRows, numCols));
   }, [numRows, numCols]);
-
-  const handleNumRowsChange = (event) => {
-    const value = parseInt(event.target.value);
-    setNumRows(value > 0 ? value : 1);
-  };
-
-  const handleNumColsChange = (event) => {
-    const value = parseInt(event.target.value);
-    setNumCols(value > 0 ? value : 1);
-  };
 
   const toggleCell = (i, j) => {
     const newGrid = [...grid];
@@ -36,14 +21,6 @@ const GameOfLife = () => {
 
   const handleClearClick = () => {
     setGrid(generateEmptyGrid(numRows, numCols));
-  };
-
-  const handleNameChange = (event) => {
-    setGridName(event.target.value);
-  };
-
-  const handleSubmit = () => {
-    setSubmittedName(gridName);
   };
 
   const runSimulation = useCallback(() => {
@@ -90,41 +67,10 @@ const GameOfLife = () => {
 
   return (
     <div>
-      <div className='input-div'>
-        <div className='rows-div'>
-          <label htmlFor="numRowsInput">Rows:</label>
-          <input
-            type="number"
-            id="numRowsInput"
-            value={numRows}
-            onChange={handleNumRowsChange}
-          />
-        </div>
-        <div className='columns-div'>
-          <label htmlFor="numColsInput">Columns:</label>
-          <input
-            type="number"
-            id="numColsInput"
-            value={numCols}
-            onChange={handleNumColsChange}
-          />
-        </div>
-      </div>
-      <div className='name-input'>
-        <label htmlFor="gridNameInput">Grid Name:</label>
-        <input
-          type="text"
-          id="gridNameInput"
-          value={gridName}
-          onChange={handleNameChange}
-        />
-        <button onClick={handleSubmit} className='submit-button'>Submit</button>
-      </div>
       <div className='buttons-div'>
         <button onClick={handleRunClick} className='start-button'>{running ? 'Pause' : 'Start'}</button>
         <button onClick={handleClearClick} className='reset-button'>Clear</button>
       </div>
-      {submittedName && <h2 className='grid-name'>{submittedName}</h2>}
       <div className='grid-container' style={{ gridTemplateColumns: gridTemplateColumns }}>
         {grid.map((row, i) =>
           row.map((col, j) => (
@@ -140,4 +86,4 @@ const GameOfLife = () => {
   );
 };
 
-export default GameOfLife;
+export default Grid;

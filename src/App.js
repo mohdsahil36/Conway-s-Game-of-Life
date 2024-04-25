@@ -1,5 +1,5 @@
 import './App.css';
-import GameOfLife from './components/Dashboard/Dashboard';
+import GameOfLife from './components/Dashboard/GameofLife';
 
 function App() {
 
