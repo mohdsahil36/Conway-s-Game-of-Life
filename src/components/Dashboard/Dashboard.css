@@ -14,15 +14,15 @@ justify-content: center;
 .cell {
 width: 30px;
 height: 20px;
-border: solid 2px gray;
-}
-
-.cell.alive {
-background-color: black;
+border: solid 0.5px rgb(179, 176, 176);
 }
 
 .cell.dead {
-background-color: white;
+background-color: #FBFBFB;
+}
+
+.cell.alive {
+background-color: #14A44D;
 }
 .input-div{
     display: flex;
@@ -33,32 +33,44 @@ background-color: white;
 .rows-div,.columns-div{
     font-size: 1.25rem;
 }
-.rows-div input,.columns-div input{
+.rows-div input,.columns-div input,.name-input input{
     margin-left: 1rem;
-    height: 1.5rem;
+    height: 1.75rem;
     font-size: 1.25rem;
 }
-.buttons-div{
+.buttons-div,.name-input{
     text-align: center;
+    font-size: 1.125rem;
 }
 .start-button{
-    padding: 0.75rem 2rem;
+    padding: 1rem 2rem;
     color: white;
     font-weight: 500;
     border: none;
     border-radius: 10px;
     background-color: #3B71CA;
     text-transform: uppercase;
-    font-size: 1.125rem;
 }
 .reset-button{
-    padding: 0.75rem 2rem;
+    padding: 1rem 2rem;
     color: white;
     font-weight: 500;
     border: none;
     border-radius: 10px;
     background-color: #332D2D;
     text-transform: uppercase;
-    font-size: 1.125rem;
     margin-left: 1rem;
+}
+.submit-button{
+    padding: 1rem 2rem;
+    color: white;
+    font-weight: 500;
+    border: none;
+    border-radius: 10px;
+    background-color: #14A44D;
+    text-transform: uppercase;
+    margin-left: 1rem;
+}
+.grid-name{
+    text-align: center;
 }

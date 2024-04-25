@@ -7,6 +7,8 @@ const GameOfLife = () => {
   const [numCols, setNumCols] = useState(20);
   const [grid, setGrid] = useState(() => generateEmptyGrid(numRows, numCols));
   const [running, setRunning] = useState(false);
+  const [gridName, setGridName] = useState('');
+  const [submittedName, setSubmittedName] = useState('');
 
   useEffect(() => {
     setGrid(generateEmptyGrid(numRows, numCols));
@@ -34,6 +36,14 @@ const GameOfLife = () => {
 
   const handleClearClick = () => {
     setGrid(generateEmptyGrid(numRows, numCols));
+  };
+
+  const handleNameChange = (event) => {
+    setGridName(event.target.value);
+  };
+
+  const handleSubmit = () => {
+    setSubmittedName(gridName);
   };
 
   const runSimulation = useCallback(() => {
@@ -100,10 +110,21 @@ const GameOfLife = () => {
           />
         </div>
       </div>
+      <div className='name-input'>
+        <label htmlFor="gridNameInput">Grid Name:</label>
+        <input
+          type="text"
+          id="gridNameInput"
+          value={gridName}
+          onChange={handleNameChange}
+        />
+        <button onClick={handleSubmit} className='submit-button'>Submit</button>
+      </div>
       <div className='buttons-div'>
-        <button onClick={handleRunClick} className='start-button'>{running ? 'Stop' : 'Start'}</button>
+        <button onClick={handleRunClick} className='start-button'>{running ? 'Pause' : 'Start'}</button>
         <button onClick={handleClearClick} className='reset-button'>Clear</button>
       </div>
+      {submittedName && <h2 className='grid-name'>{submittedName}</h2>}
       <div className='grid-container' style={{ gridTemplateColumns: gridTemplateColumns }}>
         {grid.map((row, i) =>
           row.map((col, j) => (
